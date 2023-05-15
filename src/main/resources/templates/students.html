@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/students}">Student Management</a>
+        </li>
+
+    </ul>
+
+</nav>
+<div class="container">
+    <div class="row">
+        <h1>List students</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3">Add Student</a>
+        </div>
+    </div>
+    <table class="table table-stripped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="students:${students}">
+            <td th:text="${students.firstName}"></td>
+            <td th:text="${students.lastName}"></td>
+            <td th:text="${students.email}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
